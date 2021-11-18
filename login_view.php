@@ -3,34 +3,41 @@
         <title>로그인</title>
     </head>
     <body>
+        <form action="login_server.php" method="post">
 
-    <form action="login_server.php" method="post">
+            <h2>로그인</h2>
+            <?php
+                if(isset($_GET['error']))
+                {   ?>
+                    <p><?php echo $_GET['error']; ?> </p>
+                <?php   }   ?>
 
-        <h2>로그인</h2>
-
-        
-        <?php
-        //올바르지 않은 입력이 있을 때 각 ?error에 관한 내용을 출력
-        if(isset($_GET['error'])) { ?>
-        <P><?php echo $_GET['error']; ?></P>
-        <?php   }   ?>
-
-        <?php
-        //성공적으로 입력이 완료됐을 때 ?suuccess에 관한 내용을 출력
-        if(isset($_GET['success'])){ ?>
-        <P><?php echo $_GET['success']; ?></P>
-        <?php   }  ?>
-        
+            <?php
+                if(isset($_GET['success']))
+                {   ?>
+                    <p><?php echo $_GET['success'] ?> </p>
+                <?php   }   ?>
+            
         <label>아이디</label>
-        <input type="text" name="loginID" pattern="^[a-zA-Z0-9]+$" placeholder="아이디"> <br>
-        
+        <input type="text" pattern="^[a-zA-Z0-9]+$" name="logID" placeholder="아이디"> <br>
+            
         <label>비밀번호</label>
-        <input type="password" name="loginPassword" placeholder="비밀번호">
-        
-        <button type="submit" name="Login">로그인</button> <br> <br>
+        <input type = "password" name="logPassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~!@#$%^&*()+|=])[A-Za-z\d~!@#$%^&*()+|=]{8,16}$" placeholder="비밀번호">
+                    
+        <button>로그인하기</button>
 
-        <a href="register_view.php">아직 회원이 아니신가요? (회원가입 페이지)</a>
+        <br>
+        <br>
 
-        </form>
+        <a href="register_view.php">아직 회원이 아니신가요?(회원가입 페이지)</a>
+
+        <br>
+        <br>
+
+        <a href="find_id_view.php">아이디 찾기</a>
+        <a href="find_pwd_view.php">비밀번호 찾기</a>
+
+
+    </form>
     </body>
-</html>
+    </html>

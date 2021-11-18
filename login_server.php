@@ -1,37 +1,59 @@
 <?php
-    //db.php에 있는 기능을 포함시킴
+    session_start();
     include "db.php";
 
-    //isset() 함수로 각 변수가 설정돼있는지 확인한다
-    if(isset($_POST['loginID']) && isset($_POST['loginPassword']))
-    {   
-        //특수문자를 문자열로 변경해준다
-        $LoginID = mysqli_real_escape_string($db, $_POST['loginID']);
-        $LoginPWD = mysqli_real_escape_string($db, $_POST['loginPassword']);
+    if(isset($_POST['logID']) && isset($_POST['logPassword']))
+    {
+        $LOGID = mysqli_real_escape_string($db, $_POST['logID']);
+        $LOGPWD = mysqli_real_escape_string($db, $_POST['logPassword']);
 
-        //각 입력값이 비어있는지 확인한다
-        if(empty($LoginID))
+        if(empty($LOGID))
         {
-            header("location: login_view.php?error=아이디가 비어있어요");
+            header("location: login_view.php?error=아이디가 비어있습니다");
             exit();
         }
-        else if(empty($LoginPWD))
+        else if(empty($LOGPWD))
         {
-            header("location: login_view.php?error=비밀번호가 비어있어요");
+            header("location: login_view.php?error=비밀번호가 비어있습니다");
             exit();
-            
         }
         else
         {
-            $sql = "select * from member where mb_id = '$LoginID'"; //모든 값을 member에서 조회하되, $LoginID과 동일한 아이디를 조회한다
-            $result = mysqli_query($db, $sql); //$db에 $sql이라는 명령을 실행시킨다
+            $sql = "select * from member where mb_id = '$LOGID'";
+            $result = mysqli_query($db, $sql);
 
-            //$result를 통해 동일한 아이디가 있는지 확인한다
             if(mysqli_num_rows($result) === 1)
             {
-                $row = mysqli_fetch_assoc($result); //$result와 관계된 것을 가져온다
-                echo '번호  :   '.$row['no'].'<br>'.' 닉네임   :   '.$row['mb_nick'].'<br>'.' 아이디   :   '.$row['mb_id'].'<br>'.' 비밀번호   :   '.$row['password'];
+                $row = mysqli_fetch_assoc($result); // 조회 결과 후 나온 값들과 관련된 것들을 가져온다
+                $hash = $row['password'];
+
+                $_SESSION['mb_id'] = $row['mb_id'];
+                $_SESSION['mb_nick'] = $row['mb_nick'];
+                $_SESSION['no'] = $row['no'];
+                $_SESSION['password'] = $row['password'];
+
+                if(password_verify($LOGPWD, $hash))
+                {
+                    echo "<script> alert('로그인 성공!'); alert('마이페이지로 이동'); location.href='mypage.php'; </script>";
+                }
+                else
+                {
+                    header("location: login_view.php?error=비밀번호가 틀렸습니다");
+                    exit();
+                }
             }
+            else
+            {
+                header("location: login_view.php?error=아이디가 잘못됐습니다");
+                exit(); 
+            }
+            
         }
+    }
+    else
+    {
+        header("location: login_view.php?error=알 수 없는 오류가 발생하였습니다");
+        exit();
+        
     }
 ?>
