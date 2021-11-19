@@ -1,0 +1,191 @@
+@charset "utf-8";
+
+/*초기화*/
+*{
+    margin: 0; 
+    padding: 0;
+    font-size: 10px;
+}
+ul, li{
+   list-style: none;
+}
+
+.folder{
+    width: 100%; 
+}
+
+/*------------------------ 페이지 상단------------------------*/
+/*페이지 상단 적용*/
+.page-header{
+    width: 100%;
+    height: 10vh;
+    background-color: #303030;
+    position: relative;
+    display: flex;
+}
+
+/*로고 사진*/
+.page-logo a{
+    list-style: none;
+    color: #303030;
+    display: flex;
+    padding: 6% 10% 0 18%;/*위 오른쪽 아래  왼쪽*/
+}
+
+/*메뉴바*/
+
+/*메뉴바 menu*/
+.gnb ul{
+    position: absolute;
+    width: 70%;
+    right: 12%;
+}
+
+/*메뉴바 menu의 li*/
+.menu li{
+    float: left;
+    position: relative;
+    text-align: center;
+    height: 100%;
+    padding: 0 9%;
+}
+
+/*메뉴바 메뉴 내용 적용*/
+.UL{
+    font-size: 2em;
+    color: #D4EF63;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 4.5em;
+}
+
+/*메뉴바 효과*/
+
+.menu li::after{
+    position: absolute;
+    background: none repeat scroll 0 0 transparent;
+    background: #D4EF63;
+    bottom: 0;
+    content:"";
+    display: block;
+    height: 3%;
+    left: 50%;
+    transition: width .3s ease 0s, left .3s ease 0s;
+    width: 0;
+}
+
+.menu li:hover::after{
+    left: 0;
+    width: 100%;
+}
+
+/*메뉴바 user icon 내용 적용*/
+.util{
+    position: absolute;
+    width: 5vw;
+    height: 6%;
+    top: 12%;
+    left: 93%;
+}
+
+.util a{
+    text-align: center;
+}
+
+.toogleBtn{
+    position: absolute;
+    right: 7%;
+    font-size: 2em;
+    color: #D4EF63;
+}
+@media screen and (max-width:1000px){
+    .page-header{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1% 10%;/*뭐가 보이면 수정*/
+        background-color: #303030;
+    }
+    .page-logo{
+        object-fit: contain;
+        width: 300px;
+        height: 50px;
+    }
+    .menu{
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .menu li{
+        width: 100%;
+        text-align: center;
+    }
+    .util{
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+/*--------------------------페이지 중단--------------------------*/
+#wrap{
+    width: 100%;
+    position: relative;
+}
+.slides{
+    width: calc(100%/6);
+    overflow: hidden;
+    margin-left: calc(-100%*1);/*맨처음 이미지로 감*/
+    position: relative;
+    z-index: 1;
+}
+.slide{
+    float: left;
+}
+.slides img{
+    width: 100%;
+}
+
+.pageBtWrap{
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    bottom: 7%;
+    width: 100%;
+    text-align: center;
+}
+.pageBtWrap li{
+    display: inline;
+}
+.pageBtWrap li .pageBt{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-color: #fff;
+}
+.pageBtWrap li .pageBt .addPageBt{
+    background-color: #ff0;
+}
+
+#controller{ 
+    position:absolute; 
+    top: 50%; 
+    cursor: pointer; 
+    z-index: 2;
+    font-size: 5em;
+}
+.left{
+    padding: 0 5%; 
+}
+.right{
+    padding: 0 95%;
+}
+
+/*--------------------------페이지 하단--------------------------*/
+footer {
+	padding: 5vh 0;
+	background-color:#303030;
+	color:#58585c;
+	text-align:center;
+    left:0; width:100%; bottom: 0;
+}
