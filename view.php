@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "lib.php";
 
 $idx = $_GET['idx'];
@@ -24,6 +23,34 @@ $data = mysqli_fetch_array($result);
     </tr>
     </p>
     <a href="write.php?idx=<?=$idx?>">수정</a>
-    <a href="delete.php?idx=<?=$idx?>" onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
+    <a href="confirm_delete.php?idx=<?=$idx?>">삭제</a>
     <a href="list.php">목록</a>
 </form>
+
+<form action="comment.php" method="post">
+    <input type="hidden" name="idx" value="<?=$idx?>">
+    <p>
+    <tr>
+        <th> 댓글 작성</th>
+        <td> <input type="text" name="comment"> </td>
+    </tr>
+    </p>
+    <input type="submit" value="저장">
+</form>
+
+<tr>
+    <th> 댓글 </th>
+</tr>
+
+<?php
+    $query = "select * from comment where idx='$idx'";
+    $result = mysqli_query($connect, $query);
+
+    while($data = mysqli_fetch_array($result))
+    {
+        ?>
+        <br>
+        <td> <?=$data['comment']?> </td>
+        <?php
+    }
+?>
