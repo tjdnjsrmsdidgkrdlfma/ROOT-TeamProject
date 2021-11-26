@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동아리소개사이트</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="./script/script.js"></script>
+</head>
+<style>
+    .folder{
+        width: 100%;
+        height: 1030px;
+        background: #474747;
+    }
+    .title-web{
+        font-weight: bold;
+        color: #D4EF63;
+        margin: 25px 0;
+    }
+    hr{
+        width: 1200px;
+        height: 3px;
+        border: 0;
+        background: #BBBBBB;
+    }
+    #font{
+        color: #FFFFFF;
+    }
+    #btn{
+        margin: 30px 0;
+    }
+</style>
+<body>
+    <!--페이지 상단-->
+    <header></header>
+    <div class="folder">
+        <!--페이지 중단-->
+        <div class="container" id="Cont">
+            <img src=".img/root home2" alt="">
+            <div class="title-web"><h1>동아리소개</h1></div>
+            <hr>
+            <div id="font">
+                <h4>저희 동아리는 해킹 동아리로 여러가지 해킹 기법과 해킹 분야를 배울 수 있고 전문 대회나 해킹 대회에 참여하여 해킹에 대한 전문지식을 쌓을 수 있고 포트폴리오 관리를 할 수 있습니다.</h4>
+                <br>
+                <h3>해킹 분야 소개</h3>
+                <h4>포너블 - 포너블은 주로 시스템해킹이라 불리며, 컴퓨터의 운영 체제나 소프트웨어, 하드웨어에 내재된 보안 취약점을 해킹하는 것입니다. </h4>
+                <h4>리버싱 - 리버싱은 말 그대로 역공학을 뜻합니다. 리버싱은 이미 존재하고 작동하는 프로그램 즉 기계어로 번역된 프로그램의 구조와 실제 프로세스로서 작동하는 동작을 파악함으로서 해당 프로그램의 구조를 파악하는 기술을 말합니다. </h4>
+                <h4>웹해킹 - 웹 해킹은 웹 사이트의 취약점을 공격하는 것으로, 웹 페이지를 통하여 권한이 없는 시스템에 접근하거나 데이터 유출 및 파괴와 같은 행위를 할 수 있습니다.</h4>
+                <h4>암호학 - 암호학은 정보를 보호하기 위한 언어학적 및 수학적 방법론을 다루는 학문으로 수학을 중심으로 컴퓨터, 통신 등 여러 학문 분야에서 공동으로 연구, 개발되고 있습니다.</h4>
+                <h4>포렌식 - 디지털포렌식 또는 컴퓨터포렌식은 범죄현장에서 확보하는 스마트폰, 태블릿, 컴퓨터 등 디지털데이터 저장매체에서 수집할 수 있는 전자적 증거물 등을 사법기관에 제출하기 위해 데이터를 수집, 분석, 보고서를 작성하는 일련의 작업입니다.</h4>
+                <br>
+                <h3>쾌적한 동아리 공간</h3>
+                <h4>저희 동아리에서는 해킹 전문 인력을 양성하기 위하여 쾌적한 동아리 공간을 마련하였습니다.</h4>
+                <br>
+                <h3>선배님들과의 서로 배우는시간</h3>
+                <h4>저희 동아리에서는 후배들이 실력을 쌓을 수 있도록 선배님들이 직접 알려주시고 소통할 수 있습니다.</h4>
+                <br>
+                <blockquote>
+                    <h1>ROOT에 흥미가 생기셨나요?</h1>
+                    <h3>아래 버튼을 눌러 입부신청하세요!</h3>
+                </blockquote>
+            </div>
+            <button id="btn" class="btn" onclick ="location.href='membership.php'">입부신청하러 가기</button>
+        </div>
+        <!--메인 페이지 하단-->
+        
+    </div>
+    <footer></footer>
+</body><script src="./script/jquery-1.12.3.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+       $('header').load('/header.html');
+       $('footer').load('/footer.html');
+   });
+</script>
+</html>

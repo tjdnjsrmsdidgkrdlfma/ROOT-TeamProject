@@ -38,11 +38,12 @@ if($idx)
 }
 else
 {
+    $hit = 0; //db에서 조회수를 담당하는 hit 값을 0으로 설정
     date_default_timezone_set('Asia/Seoul');
     $regdate = date("Y-m-d H:i:s");
 
-    $query = "insert into sing_board(pub, name, memo ,regdate, password)
-    values('$PUB','$name','$memo','$regdate','$password')";
+    $query = "insert into sing_board(pub, name, memo ,regdate, password, hit)
+    values('$PUB','$name','$memo','$regdate','$password','$hit')";
 
     mysqli_query($connect, $query);
 
