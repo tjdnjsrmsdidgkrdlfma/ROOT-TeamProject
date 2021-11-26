@@ -1,7 +1,9 @@
 <?php
 
+// db.php 파일을 포함시킨다
 include "db.php";
 
+//
 if(isset($_POST['exID']) && isset($_POST['exNick']) && isset($_POST['newpwd']) && isset($_POST['newconpwd']))
 {
     $EXID = mysqli_real_escape_string($db, $_POST['exID']);
@@ -11,23 +13,19 @@ if(isset($_POST['exID']) && isset($_POST['exNick']) && isset($_POST['newpwd']) &
 
     if(empty($EXID))
     {
-        header("location: new_pwd_view.php?error=아이디가 비어있습니다");
-        exit();
+        echo "<script> alert('아이디가 비어있습니다'); history.back(); </script>";
     }
     else if(empty($EXNICK))
     {
-        header("location: new_pwd_view.php?error=닉네임이 비어있습니다");
-        exit();
+        echo "<script> alert('닉네임이 비어있습니다'); history.back(); </script>";
     }
     else if(empty($NEWPWD))
     {
-        header("location: new_pwd_view.php?error=비밀번호가 비어있습니다");
-        exit();
+        echo "<script> alert('비밀번호가 비어있습니다'); history.back(); </script>";
     }
     else if(empty($NEWCONPWD))
     {
-        header("location: new_pwd_view.php?error=비밀번호 확인이 비어있습니다");
-        exit();
+        echo "<script> alert('비밀번호 확인이 비어있습니다'); history.back(); </script>";
     }
     else
     {
@@ -64,8 +62,7 @@ if(isset($_POST['exID']) && isset($_POST['exNick']) && isset($_POST['newpwd']) &
         }
         else
         {
-            header("location: new_pwd_view.php?error=조건과 일치하는 계정이 없습니다");
-            exit();
+            echo "<script> alert('조건과 일치하는 계정을 찾을 수 없습니다'); history.back(); </script>";
         }
         
     }
