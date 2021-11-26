@@ -1,0 +1,39 @@
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <style>
+        #folder {
+            height: 830px;
+            background: #474747;
+        }
+
+        h1, h3 {
+            color: #fff;
+        }
+
+        .container {
+            margin-top: 260px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="folder">
+        <header></header>
+        <div class="container">
+            <h1>405 Error | Method Not Allowed</h1>
+            <h3>허용되지 않는 요청입니다.</h3>
+            <button onclick="location.href='index.html'" class="btn">메인 페이지로 돌아이기</button>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+
+<script src="./script/jquery-1.12.3.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('header').load('/header.html');
+        $('footer').load('/footer.html');
+    });
+</script>

@@ -1,8 +1,14 @@
 //---------------------슬라이드---------------------
-//변수선언
-const slides=document.querySelector('.slides');//전체 슬라이드 컨네이너
-const slidImg=document.querySelectorAll('.slides');//모든 슬라이드들
-let currentIdx=0;//현재 슬라이드 index
-const slideCount=slideImg.length;//슬라이드 개수
-const prev=document.querySelector('.left');//이전 버튼(왼쪽 화살표)
-const prev=document.querySelector('.right');//다음 버튼(오른쪽 화살표)
+//조작 버튼
+
+$('.prev').click(function(){
+    $('.slide li:last').prependTo('.slide');
+    $('.slide').css('margin-left', -1600);
+    $('.slide').stop().animate({marginLeft:0}, 800)
+});
+$('.next').click(function(){
+    $('.slide').stop().animate({marginLeft:-1600}, 800, function(){
+        $('.slide li:first').appendTo('.slide');
+        $('.slide').css({marginLeft:0})
+    });
+});

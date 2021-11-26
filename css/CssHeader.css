@@ -1,47 +1,28 @@
 @charset "utf-8";
 
-/*메인페이지 css*/
-
-
 /*초기화*/
-
 * {
     margin: 0;
     padding: 0;
-    font-size: 10px;
-}
-
-
-/*스크롤바 안보이게*/
-
-body {
-    -ms-overflow-style: none;
-}
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-
-/*공통 적용사안*/
-
-ul,
-li {
-    list-style: none;
-}
-
-a {
     text-decoration: none;
 }
 
-.folder {
-    width: 100%;
+header{
+    font-size: 10px;
 }
 
+/*스크롤바 안보이게*/
+body{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar { display: none; }
+
+/*공통 적용사안*/
+ul, li {
+    list-style: none;
+}
 
 /*------------------------ 페이지 상단------------------------*/
-
-
 /*페이지 상단 적용*/
 
 .p-header {
@@ -50,38 +31,33 @@ a {
     background-color: #303030;
 }
 
-#header-m {
+#header-m{
     margin-top: 0;
 }
-
 
 /*로고 사진*/
 
 .page-logo {
-    margin: auto 10px;
-    padding: 0 0 0 8%;
+    margin:auto 10px;
+    padding: 0  0  0 8% ;
 }
 
 
 /*메뉴바*/
-
-
 /*menu*/
-
-.gnb {
+.gnb{
     position: relative;
     width: 60%;
     margin-left: 5em;
 }
 
-
 /*메뉴바 menu의 li*/
-
-ul.menu {
+ul.menu{
     display: flex;
     flex-wrap: nowrap;
     line-height: 100px;
     justify-content: space-evenly;
+    margin: 0;
 }
 
 .menu li {
@@ -96,8 +72,10 @@ ul.menu {
     font-weight: bold;
 }
 
-
 /*메뉴바 효과*/
+.menu li:hover{
+    text-decoration: none;
+}
 
 .menu li::after {
     position: absolute;
@@ -119,7 +97,6 @@ ul.menu {
 
 
 /*메뉴바 user icon 내용 적용*/
-
 .util {
     display: inline-block;
     margin: 13px 100px 0 20px;
@@ -130,73 +107,4 @@ ul.menu {
         display: inline-block;
         width: 20px;
     }
-}
-
-
-/*--------------------------페이지 중단--------------------------*/
-
-/* 슬라이드 수정본 */
-.wrap {
-    position: relative;
-    background-color: #474747;
-}
-
-.content-wrap {
-    min-width: 1600px;
-    height: 830px;
-    overflow: hidden;
-}
-
-.slide {
-    width: 100%;
-}
-
-.slide li {
-    width: 100%;
-    height: 830px;
-    text-align: center;
-}
-
-.slide li img {
-    width: 100vw;
-    height: 100%;
-    object-fit: fill;
-}
-
-.wrap span {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: block;
-    cursor: pointer;
-}
-
-.prev {
-    left: 0;
-    padding: 20px;
-}
-
-.next {
-    right: 0;
-    padding: 20px;
-}
-
-
-/*--------------------------페이지 하단--------------------------*/
-
-footer {
-    background-color: #303030;
-    width: 100%;
-    height: 200px;
-}
-
-.f-div {
-    text-align: center;
-    padding: 60px 0;
-}
-
-.f-div a {
-    font-size: 2em;
-    color: #71726e;
-    display: block;
 }
